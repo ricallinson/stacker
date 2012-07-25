@@ -1,10 +1,10 @@
 {
-    "name": "test",
-    "description": "Test app for ash",
+    "name": "simple",
+    "description": "Test app for Stack",
     "engines" : {
         "node" : ">=0.6.0"
     },
     "dependencies" : {
-        "ash": "*"
+        "stack": "*"
     }
 }
