@@ -23,7 +23,7 @@
 
 'use strict';
 
-var app = require('stack/lib/index').createServer();
+var app = require('stacker/lib/index').createServer();
 
 app.get('/', function (req, res) {
 
