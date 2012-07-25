@@ -1,0 +1,9 @@
+echo Running JSLint
+
+find ./examples -name "*.js" -print0 | xargs -0 jslint
+find ./lib/http -name "*.js" -print0 | xargs -0 jslint
+jslint ./lib/middleware/router.js
+jslint ./lib/index.js
+jslint ./lib/proto.js
+jslint ./lib/utils.js
+find ./tests -name "*.js" -print0 | xargs -0 jslint
