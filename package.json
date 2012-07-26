@@ -8,15 +8,13 @@
         "node" : ">=0.6.0 <= 0.8.0"
     },
     "scripts": {
-        "test": "mocha --recursive ./tests"
+        "test": "node ./tests/run.js"
     },
     "dependencies" : {
         "knot": "*",
         "connect": "1.x"
     },
-    "devDependencies": {
-        "mocha": ">=1.3.x"
-    },
+    "devDependencies": {},
     "repository": {
         "type": "git",
         "url": "https://github.com/capecodehq/stacker.git"
