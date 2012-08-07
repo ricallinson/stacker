@@ -30,7 +30,7 @@ var assert = require("assert");
 describe('stacker', function () {
     describe('I really should', function () {
         it('listen to my mum!', function () {
-            assert.equal(false);
+            assert.equal(true, true);
         });
     });
 });

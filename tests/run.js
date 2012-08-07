@@ -29,7 +29,8 @@
  * Load required modules
  */
 
-var connect = require('connect'),
+var path = require('path'),
+    connect = require('connect'),
     knot = require('knot'),
     app = connect.createServer(),
     exec = require('child_process').exec,
@@ -37,50 +38,59 @@ var connect = require('connect'),
     arg = process.argv[2];
 
 /*
- * Tell connect to use the knot middleware.
+ * Install stacker
  */
 
-app.use(knot.node(__dirname));
+exec('npm install ' + path.join(__dirname, '/../') + ' ' + __dirname, function (error, stdout, stderr) {
 
-/*
- * Server some staic files for mocha
- */
+    console.log(stdout);
 
-app.use(connect.static(__dirname + '/static'));
+    /*
+     * Tell connect to use the knot middleware.
+     */
 
-/*
- * Add a simple function to serve the index.html file
- */
+    app.use(knot.node(__dirname));
 
-app.use(function (req, res) {
-    res.end(require('fs').readFileSync('./static/index.html'));
-});
+    /*
+     * Server some staic files for mocha
+     */
 
-/*
- * Listen for requests on http://localhost:3000/
- */
+    app.use(connect.static(__dirname + '/static'));
 
-app.listen(3000);
+    /*
+     * Add a simple function to serve the index.html file
+     */
 
-/*
- * Run locally or with a custom phantomjs location
- */
+    app.use(function (req, res) {
+        res.end(require('fs').readFileSync('./static/index.html'));
+    });
 
-if (arg === 'local') {
-    return; // this lets us test the tests locally
-} else if (arg) {
-    phantomjs = arg;
-}
+    /*
+     * Listen for requests on http://localhost:3000/
+     */
 
-/*
- * Now run the Mocha tests in Phantomjs
- */
+    app.listen(3000);
 
-exec(phantomjs + ' ' + __dirname + '/phantomjs-mocha.js http://localhost:3000/', function (error, stdout, stderr) {
-  console.log(stdout);
-  if (error !== null) {
-      process.exit(1);
-  } else {
-      process.exit();
-  }
+    /*
+     * Run locally or with a custom phantomjs location
+     */
+
+    if (arg === 'local') {
+        return; // this lets us test the tests locally
+    } else if (arg) {
+        phantomjs = arg;
+    }
+
+    /*
+     * Now run the Mocha tests in Phantomjs
+     */
+
+    exec(phantomjs + ' ' + __dirname + '/phantomjs-mocha.js http://localhost:3000/', function (error, stdout, stderr) {
+        console.log(stdout);
+        if (error !== null) {
+            process.exit(1);
+        } else {
+            process.exit();
+        }
+    });
 });
