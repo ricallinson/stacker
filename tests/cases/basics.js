@@ -48,19 +48,19 @@ describe('stacker', function () {
 describe('stacker.createServer', function () {
     describe('app.use', function () {
         it('app.use should be a function', function () {
-        	var app = stacker.createServer();
+            var app = stacker.createServer();
             assert.equal(typeof app.use, 'function');
         });
     });
     describe('app.handle', function () {
         it('app.handle should be a function', function () {
-        	var app = stacker.createServer();
+            var app = stacker.createServer();
             assert.equal(typeof app.handle, 'function');
         });
     });
     describe('app.listen', function () {
         it('app.listen should be a function', function () {
-        	var app = stacker.createServer();
+            var app = stacker.createServer();
             assert.equal(typeof app.listen, 'function');
         });
     });
