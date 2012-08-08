@@ -85,7 +85,7 @@ exec('cd ' + __dirname + '\nnpm install ' + path.join(__dirname, '/../\nnpm inst
      * Run locally or with a custom phantomjs location
      */
 
-    if (arg !== 'local') {
+    if (arg !== 'local' && arg) {
         phantomjs = arg;
     } else {
         return; // this lets us test the tests locally
