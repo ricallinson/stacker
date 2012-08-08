@@ -29,8 +29,13 @@ var assert = require("assert");
 var stacker = require('stacker');
 
 describe('stacker', function () {
-    describe('the required object', function () {
-        it('should return app.listen as a function', function () {
+	describe('app', function () {
+        it('should be an object', function () {
+            assert.equal(typeof stacker, 'object');
+        });
+    });
+    describe('app.listen', function () {
+        it('should be a function', function () {
         	var app = stacker.createServer();
             assert.equal(typeof app.listen, 'function');
         });
