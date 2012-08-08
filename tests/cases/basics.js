@@ -41,10 +41,11 @@ describe('stacker', function () {
     });
     describe('stacker.router', function () {
         it('router should be a function', function () {
-            assert.equal(typeof stacker.router, 'function');
+            assert.equal(typeof stacker.router({}), 'function');
         });
     });
 });
+
 describe('stacker.createServer', function () {
     describe('app.use', function () {
         it('app.use should be a function', function () {
