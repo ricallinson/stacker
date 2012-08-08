@@ -72,7 +72,7 @@ exec('cd ' + __dirname + '\nnpm install ' + path.join(__dirname, '/../\nnpm inst
      */
 
     app.use(function (req, res) {
-        res.end(require('fs').readFileSync('./static/index.html'));
+        res.end(require('fs').readFileSync(__dirname + '/static/index.html'));
     });
 
     /*
