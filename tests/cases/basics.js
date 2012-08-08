@@ -29,9 +29,33 @@ var assert = require("assert");
 var stacker = require('stacker');
 
 describe('stacker', function () {
-	describe('app', function () {
+	describe('stacker', function () {
         it('should be an object', function () {
             assert.equal(typeof stacker, 'object');
+        });
+    });
+    describe('stacker.version', function () {
+        it('should be a function', function () {
+            assert.equal(typeof stacker.version, 'string');
+        });
+    });
+    describe('stacker.router', function () {
+        it('should be a function', function () {
+            assert.equal(typeof stacker.router, 'function');
+        });
+    });
+});
+describe('stacker.createServer', function () {
+    describe('app.use', function () {
+        it('should be a function', function () {
+        	var app = stacker.createServer();
+            assert.equal(typeof app.use, 'function');
+        });
+    });
+    describe('app.handle', function () {
+        it('should be a function', function () {
+        	var app = stacker.createServer();
+            assert.equal(typeof app.handle, 'function');
         });
     });
     describe('app.listen', function () {
