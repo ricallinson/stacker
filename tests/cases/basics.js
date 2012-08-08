@@ -26,11 +26,13 @@
 'use strict';
 
 var assert = require("assert");
+var stacker = require('stacker');
 
 describe('stacker', function () {
-    describe('I really should', function () {
-        it('listen to my mum!', function () {
-            assert.equal(true, true);
+    describe('the required object', function () {
+        it('should return app.listen as a function', function () {
+        	var app = stacker.createServer();
+            assert.equal(typeof app.listen, 'function');
         });
     });
 });
