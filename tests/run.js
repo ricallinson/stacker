@@ -97,6 +97,7 @@ exec('cd ' + __dirname + '\nnpm install ' + path.join(__dirname, '/../\nnpm inst
 
     exec(phantomjs + ' ' + __dirname + '/phantomjs-mocha.js http://localhost:3000/', function (error, stdout, stderr) {
         console.log(stdout);
+        console.log(stderr);
         if (error !== null) {
             process.exit(1);
         } else {
