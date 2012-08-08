@@ -26,7 +26,7 @@
 'use strict';
 
 var assert = require("assert");
-var stacker = require('stacker'); console.log(stacker.router({}));
+var stacker = require('stacker');
 
 describe('stacker', function () {
 	describe('stacker', function () {
