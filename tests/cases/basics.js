@@ -30,36 +30,36 @@ var stacker = require('stacker');
 
 describe('stacker', function () {
 	describe('stacker', function () {
-        it('should be an object', function () {
+        it('stacker should be an object', function () {
             assert.equal(typeof stacker, 'object');
         });
     });
     describe('stacker.version', function () {
-        it('should be a function', function () {
+        it('version should be a string', function () {
             assert.equal(typeof stacker.version, 'string');
         });
     });
     describe('stacker.router', function () {
-        it('should be a function', function () {
+        it('router should be a function', function () {
             assert.equal(typeof stacker.router, 'function');
         });
     });
 });
 describe('stacker.createServer', function () {
     describe('app.use', function () {
-        it('should be a function', function () {
+        it('app.use should be a function', function () {
         	var app = stacker.createServer();
             assert.equal(typeof app.use, 'function');
         });
     });
     describe('app.handle', function () {
-        it('should be a function', function () {
+        it('app.handle should be a function', function () {
         	var app = stacker.createServer();
             assert.equal(typeof app.handle, 'function');
         });
     });
     describe('app.listen', function () {
-        it('should be a function', function () {
+        it('app.listen should be a function', function () {
         	var app = stacker.createServer();
             assert.equal(typeof app.listen, 'function');
         });
