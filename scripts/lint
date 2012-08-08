@@ -6,4 +6,5 @@ jslint ./lib/middleware/router.js
 jslint ./lib/index.js
 jslint ./lib/proto.js
 jslint ./lib/utils.js
-find ./tests -name "*.js" -print0 | xargs -0 jslint
+find ./tests/cases -name "*.js" -print0 | xargs -0 jslint
+jslint ./tests/run.js

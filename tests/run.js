@@ -30,20 +30,30 @@
  */
 
 var path = require('path'),
-    connect = require('connect'),
-    knot = require('knot'),
-    app = connect.createServer(),
-    exec = require('child_process').exec,
-    phantomjs = '',
-    arg = process.argv[2];
+    exec = require('child_process').exec;
 
 /*
  * Install stacker
+ * 
+ * > cd ./
+ * > npm install ../
+ * > npm install .
  */
 
-exec('npm install ' + path.join(__dirname, '/../') + ' ' + __dirname, function (error, stdout, stderr) {
+exec('cd ' + __dirname + '\nnpm install ' + path.join(__dirname, '/../\nnpm install ' + __dirname), function (error, stdout, stderr) {
 
     console.log(stdout);
+    console.log(stderr);
+
+    /* 
+     * Load required modules
+     */
+
+    var connect = require('connect'),
+        knot = require('knot'),
+        app = connect.createServer(),
+        phantomjs = '',
+        arg = process.argv[2];
 
     /*
      * Tell connect to use the knot middleware.
@@ -75,10 +85,10 @@ exec('npm install ' + path.join(__dirname, '/../') + ' ' + __dirname, function (
      * Run locally or with a custom phantomjs location
      */
 
-    if (arg === 'local') {
-        return; // this lets us test the tests locally
-    } else if (arg) {
+    if (arg !== 'local') {
         phantomjs = arg;
+    } else {
+        return; // this lets us test the tests locally
     }
 
     /*
