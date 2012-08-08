@@ -52,7 +52,7 @@ exec('cd ' + __dirname + '\nnpm install ' + path.join(__dirname, '/../\nnpm inst
     var connect = require('connect'),
         knot = require('knot'),
         app = connect.createServer(),
-        phantomjs = '',
+        phantomjs = 'phantomjs',
         arg = process.argv[2];
 
     /*
