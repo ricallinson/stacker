@@ -65,9 +65,9 @@ app.get('/', function (req, res) {
     console.log('You are here.');
 
     if (req.runtime === 'server') {
-        res.done(html);
+        res.end(html);
     } else {
-        res.done(body);
+        res.end(body);
     }
 });
 
