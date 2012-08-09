@@ -25,6 +25,21 @@
 
 var app = require('stacker/lib/index').createServer();
 
+app.use(function (req, res, next) {
+    console.log('Here, all');
+    next();
+});
+
+app.use(function (req, res, next) {
+    console.log('Here, client');
+    next();
+}, 'client');
+
+app.use(function (req, res, next) {
+    console.log('Here, server');
+    next();
+}, 'server');
+
 app.get('/', function (req, res) {
 
     var html,
